@@ -17,7 +17,7 @@ bash build.sh
 
 1. Extract the `Priority` folder from `AllGame Priority 3.0 R.zip` to internal storage.
 
-2. Use either Brevent or ADB shell (e.g., `adb shell`) to manage the app.
+2. Use either Brevent or other ADB shell app.
 
 3. Edit the `gamelist.txt` file to add support for other games.
 

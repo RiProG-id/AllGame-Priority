@@ -5,7 +5,6 @@ POSTFSDATA=false
 LATESTARTSERVICE=true
 REPLACE="
 "
-
 ui_print ""
 ui_print "*****************************************"
 ui_print "*      RiProG Open Source @RiOpSo       *"
@@ -16,7 +15,6 @@ ui_print "* Telegram: @RiProG | Github: RiProG-ID *"
 ui_print "*                                       *"
 ui_print "*****************************************"
 ui_print ""
-
 unzip -o "$ZIPFILE" 'Toast.apk' -d "/data/local/tmp" >&2
 pm install "/data/local/tmp/Toast.apk" >/dev/null 2>&1
 rm "/data/local/tmp/Toast.apk" >/dev/null 2>&1

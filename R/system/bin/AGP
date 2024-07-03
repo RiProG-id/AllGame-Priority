@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/sh
 echo ""
 echo "*****************************************"
 echo "*      RiProG Open Source @RiOpSo       *"
@@ -9,17 +9,13 @@ echo "* Telegram: @RiProG | Github: RiProG-ID *"
 echo "*                                       *"
 echo "*****************************************"
 echo ""
-
 sleep 2
-
 if [ "$1" = all ]; then
-package_list=$(pm list packages | cut -f 2 -d :)
+package_list=$(cmd package list packages | cut -f 2 -d :)
 else
-package_list=$(pm list packages -3 | cut -f 2 -d :)
+package_list=$(cmd package list packages -3 | cut -f 2 -d :)
 fi
-
 gamelist=/data/adb/modules/Priority/gamelist.txt
-
 sleep 2
 while true; do
   echo ""
@@ -65,7 +61,7 @@ while true; do
   elif [ "$choice" -ge 1 ] && [ "$choice" -lt "$count" ]; then
     package=$(echo $package_list | cut -d ' ' -f "$choice")
     status=$(cat "$gamelist" | grep "$package")
-    if [[ "$status" ]]; then
+    if [ "$status" ]; then
       sed -i "/$package/d" "$gamelist"
     else
       echo "$package" >> "$gamelist"
@@ -73,5 +69,6 @@ while true; do
   else
     echo "invalid select"
   fi
-   echo ""
+  echo ""
+  sleep 2
 done
