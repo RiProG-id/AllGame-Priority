@@ -1,0 +1,67 @@
+#!/system/bin/sh
+
+if [ ! -f /sdcard/Priority/gamelist.txt ]; then
+  echo "File gamelist.txt not found"
+  echo "Wrong directory"
+fi
+
+echo ""
+echo "*****************************************"
+echo "*      RiProG Open Source @RiOpSo       *"
+echo "*****************************************"
+echo "*                                       *"
+echo "*             Muhammad Rizki            *"
+echo "* Telegram: @RiProG | Github: RiProG-ID *"
+echo "*                                       *"
+echo "*****************************************"
+echo ""
+
+sleep 2
+echo "AllGame Priority 3.0"
+echo ""
+
+maindir=/sdcard/Priority
+sleep 2
+
+if [ -f "$maindir/toast.apk" ]; then
+  if ! pm list packages -3 | grep -q bellavita.toast; then
+    cp "$maindir/toast.apk" /data/local/tmp
+    pm install /data/local/tmp/toast.apk
+    rm /data/local/tmp/toast.apk
+  fi
+else
+  if pm list packages -3 | grep -q bellavita.toast; then
+    pm uninstall bellavita.toast
+  fi
+fi
+
+if [ ! "$1" = kill ]; then
+  status=$(pgrep -f main) >/dev/null 2>&1
+  if [ ! "$status" ]; then
+    cp "$maindir/main" /data/local/tmp
+    chmod +x /data/local/tmp/main
+    nohup /data/local/tmp/main > /dev/null 2>&1 &
+  fi
+
+  sleep 2
+  status=$(pgrep -f main) >/dev/null 2>&1
+  if [ "$status" ]; then
+    echo "Program is running in the background."
+  else
+    echo "Program failed to run"
+  fi
+  echo ""
+else
+  status=$(pgrep -f mlprio) >/dev/null 2>&1
+  if [ "$status" ]; then
+    pkill -f mlprio
+  fi
+
+  status=$(pgrep -f mlprio) >/dev/null 2>&1
+  if [ ! "$status" ]; then
+    echo "Program is stopped in the background."
+  else
+    echo "Program failed to stop."
+  fi
+  echo ""
+fi
