@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if ! which zip > /dev/null 2>&1; then
+if ! command -v zip > /dev/null 2>&1; then
   echo "zip is not installed. Please install zip to proceed."
   exit 1
 fi
 
-if ! which clang > /dev/null 2>&1; then
+if ! command -v clang > /dev/null 2>&1; then
   echo "clang is not installed. Please install clang to proceed."
   exit 1
 fi
@@ -25,5 +25,8 @@ zip_and_clean() {
 
 zip_and_clean "$mydir/NR" "AllGame Priority 3.0 NR.zip"
 zip_and_clean "$mydir/R" "AllGame Priority 3.0 R.zip"
+
+mv "$mydir/NR/AllGame Priority 3.0 NR.zip" "$mydir"
+mv "$mydir/R/AllGame Priority 3.0 R.zip" "$mydir"
 
 cd "$mydir" || exit
