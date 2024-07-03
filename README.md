@@ -20,7 +20,7 @@ bash build.sh
 
 #### Non-Root Method
 
-1. Extract the contents of the Priority.zip folder to internal storage.
+1. Extract the contents of the AllGame Priority 3.0 R.zip folder to internal storage.
    
 2. Use either Brevent or ADB shell (e.g., `adb shell`) to manage the app.
 
@@ -34,7 +34,7 @@ Make sure to adjust paths and permissions as necessary for your setup.
 
 #### Root Method
 
-1. Install Priority.zip using a root manager app like Magisk, KernelSU, or Apatch.
+1. Install AllGame Priority 3.0 R.zip using a root manager app like Magisk, KernelSU, or Apatch.
 
 2. Reboot your device.
 
