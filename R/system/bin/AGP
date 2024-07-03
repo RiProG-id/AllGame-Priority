@@ -19,6 +19,7 @@ package_list=$(pm list packages -3 | cut -f 2 -d :)
 fi
 
 gamelist=/data/adb/modules/Priority/gamelist.txt
+
 sleep 2
 while true; do
   echo ""
@@ -62,9 +63,9 @@ while true; do
       pm enable bellavita.toast >/dev/null 2>&1
     fi
   elif [ "$choice" -ge 1 ] && [ "$choice" -lt "$count" ]; then
-    package=$(echo "$package_list" | cut -d ' ' -f "$choice")
+    package=$(echo $package_list | cut -d ' ' -f "$choice")
     status=$(cat "$gamelist" | grep "$package")
-    if [ "$status" ]; then
+    if [[ "$status" ]]; then
       sed -i "/$package/d" "$gamelist"
     else
       echo "$package" >> "$gamelist"

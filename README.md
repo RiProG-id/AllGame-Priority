@@ -1,13 +1,9 @@
-# AllGame Priority
+## AllGame Priority
 
-## Description
-The module elevates the task priority for the game list periodically to enhance its performance.
+### Description
+AllGame Priority is a module designed to periodically elevate the task priority for games, aiming to enhance their performance.
 
-## Build
-
-### Clone Repository
-
-Clone the repository to your local machine using Git:
+### Build Instructions
 
 ```sh
 git clone https://github.com/yourusername/AllGame-Priority.git
@@ -19,22 +15,28 @@ bash build.sh
 
 #### Non-Root Method
 
-1. Extract the contents of the AllGame Priority 3.0 R.zip folder to internal storage.
-   
+1. Extract the `Priority` folder from `AllGame Priority 3.0 R.zip` to internal storage.
+
 2. Use either Brevent or ADB shell (e.g., `adb shell`) to manage the app.
 
-3. Execute the following command to run the module:
+3. Edit the `gamelist.txt` file to add support for other games.
 
-```sh
-sh /sdcard/priority/run.sh
-```
+4. Execute the following command to run the module:
+   ```sh
+   sh /sdcard/priority/run.sh
+   ```
 
-Make sure to adjust paths and permissions as necessary for your setup.
+**Notes for Non-Root Method:**
+- Make sure to edit `gamelist.txt` to include support for additional games.
+- To disable notifications from the application, remove the `toast.apk` file.
 
 #### Root Method
 
-1. Install AllGame Priority 3.0 R.zip using a root manager app like Magisk, KernelSU, or Apatch.
+1. Install `AllGame Priority 3.0 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
 
 2. Reboot your device.
 
-3. Use `su -c AGP` for settings if required.
+**Notes for Root Method:**
+- Use `su -c AGP` command to configure settings if required.
+
+[Support ME](https://t.me/RiOpSo/2848)

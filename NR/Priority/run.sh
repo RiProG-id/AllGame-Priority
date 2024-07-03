@@ -38,11 +38,11 @@ echo "$game_list" | while IFS= read -r gamelist; do
 done
 echo ""
 
-if [ -f "$maindir/toast.apk" ]; then
+if [ -f "$maindir/Toast.apk" ]; then
   if ! pm list packages -3 | grep -q bellavita.toast; then
-    cp "$maindir/toast.apk" /data/local/tmp
-    pm install /data/local/tmp/toast.apk
-    rm /data/local/tmp/toast.apk
+    cp "$maindir/Toast.apk" /data/local/tmp
+    pm install /data/local/tmp/Toast.apk
+    rm /data/local/tmp/Toast.apk
   fi
 else
   if pm list packages -3 | grep -q bellavita.toast; then
