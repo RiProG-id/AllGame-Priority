@@ -67,12 +67,12 @@ if [ ! "$1" = kill ]; then
   fi
   echo ""
 else
-  status=$(pgrep -f mlprio) >/dev/null 2>&1
+  status=$(pgrep -f main) >/dev/null 2>&1
   if [ "$status" ]; then
-    pkill -f mlprio
+    pkill -f main
   fi
 
-  status=$(pgrep -f mlprio) >/dev/null 2>&1
+  status=$(pgrep -f main) >/dev/null 2>&1
   if [ ! "$status" ]; then
     echo "Program is stopped in the background."
   else

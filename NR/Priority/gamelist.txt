@@ -233,3 +233,4 @@ com.pubg.imobile
 com.bandainamcoent.opbrww
 com.proximabeta.mf.uamo
 com.kurogame.wutheringwaves.global
+com.HoYoverse.Nap
