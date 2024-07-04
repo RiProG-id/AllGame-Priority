@@ -23,7 +23,7 @@ bash build.sh
 
 4. Execute the following command to run the module:
    ```sh
-   sh /sdcard/Priority/run.sh
+   sh /sdcard/priority/run.sh
    ```
 
 **Notes for Non-Root Method:**
