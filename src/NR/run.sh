@@ -60,12 +60,8 @@ else
 fi
 
 sleep 2
-
+pkill -f main
 if [ "$1" = kill ]; then
-  if pgrep -f main >/dev/null 2>&1; then
-    pkill -f main
-  fi
-  sleep 2
   if ! pgrep -f main >/dev/null 2>&1; then
     echo "Program is stopped in the background."
   else
