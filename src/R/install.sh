@@ -38,5 +38,5 @@ unzip -o "$ZIPFILE" 'source.c' -d "$MODPATH" >&2
 unzip -o "$ZIPFILE" 'main' -d "$MODPATH" >&2
 chmod +x "$MODPATH/main"
 ui_print ""
-ui_print "su -c AGP | to configure if required"
+ui_print "su -c AGP | su -c AGP all | to configure if required"
 ui_print ""
