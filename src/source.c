@@ -151,7 +151,7 @@ int main() {
       }
       pclose(fp);
     } else {
-      sleep(5);
+      sleep(15);
     }
 
     sleep(15);
