@@ -42,9 +42,9 @@ cp "$mydir"/src/R/module.prop "$mydir"/R
 cp "$mydir"/src/gamelist.txt "$mydir"/R
 cp "$mydir"/src/R/install.sh "$mydir"/R
 cp "$mydir"/src/R/service.sh "$mydir"/R/common
-cp "$mydir"/src/R/update-binary "$mydir"/R/META-INF/com/google/android
-cp "$mydir"/src/R/updater-script "$mydir"/R/META-INF/com/google/android
-cp "$mydir"/src/R/AGP "$mydir"/R/system/bin
+cp "$mydir"/src/R/update-binary.sh "$mydir"/R/META-INF/com/google/android/update-binary
+cp "$mydir"/src/R/updater-script.sh "$mydir"/R/META-INF/com/google/android/updater-script
+cp "$mydir"/src/R/AGP.sh "$mydir"/R/system/bin/AGP
 cp "$mydir"/src/source.c "$mydir"/R
 cp "$mydir"/src/Toast.apk "$mydir"/R
 cd "$mydir"/R
