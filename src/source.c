@@ -36,10 +36,6 @@ void setPriorities(const char *pid) {
     }
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 void readGameList(char games[][128], int *count) {
     const char *primaryPath = "/data/adb/modules/Priority/gamelist.txt";
     const char *secondaryPath = "/sdcard/Priority/gamelist.txt";
