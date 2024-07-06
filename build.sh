@@ -10,10 +10,12 @@ if ! command -v clang > /dev/null 2>&1; then
 fi
 
 mydir=$(dirname "$(realpath "$0")")
-version=$(cat "$mydir"/src/R/module.prop | grep version= | awk -F'=' '{print $2}')
+version=$(grep version= "$mydir"/src/R/module.prop | awk -F'=' '{print $2}')
 if [ ! -d "$mydir"/output ]; then
   mkdir "$mydir"/output
 fi
+
+clang -O3 "$mydir"/src/source.c -o "$mydir"/src/main
 
 if [ -d "$mydir"/NR ]; then
   rm -rf "$mydir"/NR
@@ -23,12 +25,11 @@ cp "$mydir"/src/gamelist.txt "$mydir"/NR/Priority
 cp "$mydir"/src/NR/run.sh "$mydir"/NR/Priority
 cp "$mydir"/src/source.c "$mydir"/NR/Priority
 cp "$mydir"/src/Toast.apk "$mydir"/NR/Priority
-cd "$mydir/NR/Priority"
-clang ./source.c -o ./main
-cd "$mydir/NR"
+cp "$mydir"/src/main "$mydir"/NR/Priority
+cd "$mydir"/NR || exit
 zip -r ./"AllGame Priority $version NR.zip" ./*
-cd "$mydir"
-mv "$mydir"/NR/"AllGame Priority $version NR.zip" "$mydir"/output
+cd "$mydir" || exit
+mv "$mydir/NR/AllGame Priority $version NR.zip" "$mydir"/output
 rm -rf "$mydir"/NR
 
 if [ -d "$mydir"/R ]; then
@@ -47,9 +48,11 @@ cp "$mydir"/src/R/updater-script.sh "$mydir"/R/META-INF/com/google/android/updat
 cp "$mydir"/src/R/AGP.sh "$mydir"/R/system/bin/AGP
 cp "$mydir"/src/source.c "$mydir"/R
 cp "$mydir"/src/Toast.apk "$mydir"/R
-cd "$mydir"/R
-clang ./source.c -o ./main
+cp "$mydir"/src/main "$mydir"/R
+cd "$mydir"/R || exit
 zip -r ./"AllGame Priority $version R.zip" ./*
-cd "$mydir"
-mv "$mydir"/R/"AllGame Priority $version R.zip" "$mydir"/output
+cd "$mydir" || exit
+mv "$mydir/R/AllGame Priority $version R.zip" "$mydir"/output
+
 rm -rf "$mydir"/R
+rm -f "$mydir"/src/main

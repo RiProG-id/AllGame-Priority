@@ -50,10 +50,16 @@ bash build.sh
 - Option to enable/disable toast in the menu.
 
 ### Changelog from Version 3.0 to 3.5
+Here is the shortened changelog:
 
-- Fixed an issue with the toast menu
-- Merged NR and R sources with enhanced `gamelist.txt` location detection.
-- Implemented delay loop for optimized performance.
-- Introduced various new commands and configurations for Non-Root users.
+- Fixed toast menu issue.
+- Merged NR and R sources with improved `gamelist.txt` detection.
+- Added delay loop for performance optimization.
+- Introduced new commands and configurations for Non-Root users.
+- Refactored source code.
+- Applied clang-format.
+- Optimized compiler clang with -O3 flag.
+- Added new games.
+- Fixed bugs.
 
 For additional support, visit [Support ME](https://t.me/RiOpSo/2848).

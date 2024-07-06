@@ -11,9 +11,9 @@ echo "*****************************************"
 echo ""
 sleep 2
 if [ "$1" = all ]; then
-package_list=$(cmd package list packages | cut -f 2 -d :)
+package_list=$(pm list packages | cut -f 2 -d :)
 else
-package_list=$(cmd package list packages -3 | cut -f 2 -d :)
+package_list=$(pm list packages -3 | cut -f 2 -d :)
 fi
 gamelist=/data/adb/modules/Priority/gamelist.txt
 sleep 2
