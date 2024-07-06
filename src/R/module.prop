@@ -3,4 +3,4 @@ name=AllGame Priority
 version=3.5
 versionCode=35
 author=@RiProG
-description=The module elevates the task priority for the game list periodically to enhance its performance. | su -c AGP
+description=AllGame Priority is a module designed to periodically elevate task priorities for games, aiming to enhance their performance.
