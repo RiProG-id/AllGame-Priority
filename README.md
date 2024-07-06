@@ -6,7 +6,7 @@ AllGame Priority is a module designed to periodically elevate task priorities fo
 ### Build Instructions
 
 ```sh
-git clone https://github.com/yourusername/AllGame-Priority.git
+git clone https://github.com/RiProG-id/AllGame-Priority.git
 cd AllGame-Priority
 bash build.sh
 ```
