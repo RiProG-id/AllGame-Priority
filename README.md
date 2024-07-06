@@ -46,7 +46,6 @@ bash build.sh
 
 **Notes for Root Method:**
 - Use the `su -c AGP` command to configure or modify the game list.txt if necessary.
-- Extended menu: 'su -c AGP all'
 - Option to enable/disable toast in the menu.
 
 ### Changelog from Version 3.0 to 3.5
