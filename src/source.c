@@ -36,9 +36,27 @@ void setPriorities(const char *pid) {
     }
 }
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 void readGameList(char games[][128], int *count) {
-    FILE *file = fopen("/sdcard/Priority/gamelist.txt", "r");
-    if (file == NULL) {
+    const char *primaryPath = "/data/adb/modules/Priority/gamelist.txt";
+    const char *secondaryPath = "/sdcard/Priority/gamelist.txt";
+    const char *filePath = NULL;
+
+    FILE *file = fopen(primaryPath, "r");
+    if (file != NULL) {
+        filePath = primaryPath;
+    } else {
+        file = fopen(secondaryPath, "r");
+        if (file != NULL) {
+            filePath = secondaryPath;
+        }
+    }
+
+    if (filePath == NULL) {
+        fprintf(stderr, "No gamelist file found in either location.\n");
         exit(EXIT_FAILURE);
     }
 
@@ -129,7 +147,7 @@ int main() {
             }
             pclose(fp);
         } else {
-            sleep(1);
+            sleep(5);
         }
 
         sleep(15);
