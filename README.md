@@ -15,7 +15,7 @@ bash build.sh
 
 #### Non-Root Method
 
-1. Extract the `Priority` folder from `AllGame Priority 3.5 R.zip` to internal storage.
+1. Extract the `Priority` folder from `AllGame Priority 4.0 R.zip` to internal storage.
    
 2. Use either Brevent or another ADB shell app.
    
@@ -35,30 +35,36 @@ bash build.sh
      sh /sdcard/Priority/run.sh kill
      ```
 
-**Notes for Non-Root Method:**
 - Make sure to edit gamelist.txt to include support for additional games.
 
 #### Root Method
 
-1. Install `AllGame Priority 3.5 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
+1. Install `AllGame Priority 4.0 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
    
 2. Reboot your device.
 
-**Notes for Root Method:**
-- Use the `su -c AGP` command to configure or modify the game list.txt if necessary.
-- Option to enable/disable toast in the menu.
+- su -c AGP | to configure if required.
 
-### Changelog from Version 3.0 to 3.5
-Here is the shortened changelog:
+### Changelog from Version 3.5 to 4.0
 
-- Fixed toast menu issue.
-- Merged NR and R sources with improved `gamelist.txt` detection.
-- Added delay loop for performance optimization.
-- Introduced new commands and configurations for Non-Root users.
-- Refactored source code.
-- Applied clang-format.
-- Optimized compiler clang with -O3 flag.
-- Added new games.
-- Fixed bugs.
+- Added new toast app for enhanced notifications.
+- Extended AGP menu with additional options.
+- Refactored source code for improved maintainability.
+- Applied `shfmt` for better shell script formatting.
+- Fixed various bugs and issues.
+- Added credits for contributors to the program.
+- Implemented clean uninstall feature.
 
-For additional support, visit [Support ME](https://t.me/RiOpSo/2848).
+### More Information
+
+**Author:**
+[RiProG](https://github.com/RiProG-id)
+
+**Contributors:**
+- [rakarmp](https://github.com/rakarmp)
+- [Rem01Gaming](https://github.com/Rem01Gaming)
+
+**Visit:**
+- [Support ME](https://t.me/RiOpSo/2848)
+- [Telegram Channel](https://t.me/RiOpSo)
+- [Telegram Group](https://t.me/RiOpSoDisc)

@@ -10,10 +10,15 @@ ui_print "*****************************************"
 ui_print "*      RiProG Open Source @RiOpSo       *"
 ui_print "*****************************************"
 ui_print "*                                       *"
+ui_print "*                 Author                *"
 ui_print "*             Muhammad Rizki            *"
 ui_print "* Telegram: @RiProG | Github: RiProG-ID *"
 ui_print "*                                       *"
 ui_print "*****************************************"
+ui_print ""
+ui_print "Contributor"
+ui_print "Telegram: @Zyarexx | Github: rakarmp"
+ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 ui_print ""
 unzip -o "$ZIPFILE" 'Toast.apk' -d "/data/local/tmp" >&2
 pm install "/data/local/tmp/Toast.apk" >/dev/null 2>&1
@@ -24,13 +29,13 @@ counter=1
 package_list=$(pm list packages | cut -f 2 -d :)
 game_list=$(cat "$MODPATH/gamelist.txt")
 echo "$game_list" | while IFS= read -r gamelist; do
-    line=$(echo "$gamelist" | awk '!/ /')
-    if echo "$package_list" | grep -q "$line"; then
-        ui_print "  $counter. $line"
-        counter=$((counter + 1))
-    else
-        sed -i "/$line/d" "$MODPATH/gamelist.txt"
-    fi
+	line=$(echo "$gamelist" | awk '!/ /')
+	if echo "$package_list" | grep -q "$line"; then
+		ui_print "  $counter. $line"
+		counter=$((counter + 1))
+	else
+		sed -i "/$line/d" "$MODPATH/gamelist.txt"
+	fi
 done
 unzip "$ZIPFILE" system/* -d "$MODPATH/" >/dev/null 2>&1
 chmod +x "$MODPATH/system/bin/AGP"

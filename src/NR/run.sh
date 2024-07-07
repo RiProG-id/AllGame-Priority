@@ -4,20 +4,25 @@ if [ ! -f /sdcard/Priority/gamelist.txt ]; then
   echo "Wrong directory"
 fi
 
-echo 
+echo ""
 echo "*****************************************"
 echo "*      RiProG Open Source @RiOpSo       *"
 echo "*****************************************"
 echo "*                                       *"
+echo "*                 Author                *"
 echo "*             Muhammad Rizki            *"
 echo "* Telegram: @RiProG | Github: RiProG-ID *"
 echo "*                                       *"
 echo "*****************************************"
 echo ""
+echo "Contributor"
+echo "Telegram: @Zyarexx | Github: rakarmp"
+echo "Telegram: @Rem01Gaming | Github: Rem01Gaming"
+echo ""
 
 sleep 2
 
-echo "AllGame Priority 3.5"
+echo "AllGame Priority 4.0"
 echo 
 
 sleep 2
@@ -48,14 +53,14 @@ else
 fi
 
 if [ -f /sdcard/Priority/Toast.apk ]; then
-  if ! pm list packages -3 | grep -q bellavita.toast; then
+  if ! pm list packages -3 | grep -q me.toast; then
     cp /sdcard/Priority/Toast.apk /data/local/tmp
     pm install /data/local/tmp/Toast.apk
     rm /data/local/tmp/Toast.apk
   fi
 else
-  if pm list packages -3 | grep -q bellavita.toast; then
-    pm uninstall bellavita.toast
+  if pm list packages -3 | grep -q me.toast; then
+    pm uninstall me.toast
   fi
 fi
 
