@@ -24,7 +24,7 @@ mkdir -p "$mydir"/NR/Priority
 cp "$mydir"/src/gamelist.txt "$mydir"/NR/Priority
 cp "$mydir"/src/NR/run.sh "$mydir"/NR/Priority
 cp "$mydir"/src/source.c "$mydir"/NR/Priority
-cp "$mydir"/src/Toast.apk "$mydir"/NR/Priority
+cp "$mydir"/src/toast.apk "$mydir"/NR/Priority
 cp "$mydir"/src/main "$mydir"/NR/Priority
 cd "$mydir"/NR || exit
 zip -r ./"AllGame Priority $version NR.zip" ./*
@@ -47,7 +47,7 @@ cp "$mydir"/src/R/uninstall.sh "$mydir"/R/common
 cp "$mydir"/src/R/update-binary.sh "$mydir"/R/META-INF/com/google/android/update-binary
 cp "$mydir"/src/R/AGP.sh "$mydir"/R/system/bin/AGP
 cp "$mydir"/src/source.c "$mydir"/R
-cp "$mydir"/src/Toast.apk "$mydir"/R
+cp "$mydir"/src/toast.apk "$mydir"/R
 cp "$mydir"/src/main "$mydir"/R
 echo "#MAGISK" >"$mydir"/R/META-INF/com/google/android/updater-script
 cd "$mydir"/R || exit

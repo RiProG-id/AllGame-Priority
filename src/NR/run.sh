@@ -37,21 +37,21 @@ done </sdcard/Priority/gamelist.txt
 mv /sdcard/Priority/gamelist.txt.temp /sdcard/Priority/gamelist.txt
 echo ""
 if [ "$1" = notoast ]; then
-	if [ -f /sdcard/Priority/Toast.apk ]; then
-		mv /sdcard/Priority/Toast.apk /sdcard/Priority/NoToast.apk
+	if [ -f /sdcard/Priority/toast.apk ]; then
+		mv /sdcard/Priority/toast.apk /sdcard/Priority/notoast.apk
 	fi
 else
-	if [ -f /sdcard/Priority/NoToast.apk ]; then
-		mv /sdcard/Priority/NoToast.apk /sdcard/Priority/Toast.apk
+	if [ -f /sdcard/Priority/notoast.apk ]; then
+		mv /sdcard/Priority/notoast.apk /sdcard/Priority/toast.apk
 	fi
 fi
-if [ -f /sdcard/Priority/Toast.apk ]; then
+if [ -f /sdcard/Priority/toast.apk ]; then
 	if ! pm list packages -3 | grep -q me.toast; then
-		
-		cp /sdcard/Priority/Toast.apk /data/local/tmp
-		pm install /data/local/tmp/Toast.apk >/dev/null 2>&1
-		rm /data/local/tmp/Toast.apk
-		
+
+		cp /sdcard/Priority/toast.apk /data/local/tmp
+		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
+		rm /data/local/tmp/toast.apk
+
 	fi
 else
 	if pm list packages -3 | grep -q me.toast; then
