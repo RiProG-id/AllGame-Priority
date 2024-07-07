@@ -63,6 +63,7 @@ pkill -f main
 if [ "$1" = kill ]; then
 	if ! pgrep -f main >/dev/null 2>&1; then
 		echo "Program is stopped in the background."
+		rm /data/local/tmp/main
 	else
 		echo "Program failed to stop."
 	fi
