@@ -19,6 +19,7 @@ ui_print ""
 ui_print "Contributor"
 ui_print "Telegram: @Zyarexx | Github: rakarmp"
 ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
+ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
 unzip -o "$ZIPFILE" 'Toast.apk' -d "/data/local/tmp" >&2
 pm install "/data/local/tmp/Toast.apk" >/dev/null 2>&1

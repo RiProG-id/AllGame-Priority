@@ -62,6 +62,7 @@ bash build.sh
 **Contributors:**
 - [rakarmp](https://github.com/rakarmp)
 - [Rem01Gaming](https://github.com/Rem01Gaming)
+- [fahrez256](https://github.com/fahrez256)
 
 **Visit:**
 - [Support ME](https://t.me/RiOpSo/2848)
