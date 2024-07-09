@@ -45,7 +45,7 @@ while true; do
 	fi
 	count=$((count + 1))
 	echo ""
-	if pm list package -d | grep -q me.toast; then
+	if pm list package -d | grep -q bellavita.toast; then
 		printf "\033[31m%s. %s\033[0m\n" "$count" "Toast"
 	else
 		printf "\033[32m%s. %s\033[0m\n" "$count" "Toast"
@@ -65,10 +65,10 @@ while true; do
 		echo ""
 		exit 0
 	elif [ "$choice" = "$((count - 1))" ]; then
-		if pm list package -d | grep -q me.toast; then
-			pm enable me.toast >/dev/null 2>&1
+		if pm list package -d | grep -q bellavita.toast; then
+			pm enable bellavita.toast >/dev/null 2>&1
 		else
-			pm disable me.toast >/dev/null 2>&1
+			pm disable bellavita.toast >/dev/null 2>&1
 		fi
 	elif [ "$choice" = "$((count - 2))" ]; then
 		if [ "$extended" = true ]; then

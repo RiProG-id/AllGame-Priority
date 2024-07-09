@@ -46,16 +46,14 @@ else
 	fi
 fi
 if [ -f /sdcard/Priority/toast.apk ]; then
-	if ! pm list packages -3 | grep -q me.toast; then
-		cp /sdcard/Priority/toast.apk /data/local/tmp
-		pm disable-user com.android.vending >/dev/null 2>&1
+	if ! pm list packages -3 | grep -q bellavita.toast; then
+		cp /sdcard/Priority/toast.apk /data/local/tmp >/dev/null 2>&1
 		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
-		pm enable com.android.vending >/dev/null 2>&1
 		rm /data/local/tmp/toast.apk
 	fi
 else
-	if pm list packages -3 | grep -q me.toast; then
-		pm uninstall me.toast >/dev/null 2>&1
+	if pm list packages -3 | grep -q bellavita.toast; then
+		pm uninstall bellavita.toast >/dev/null 2>&1
 	fi
 fi
 sleep 2

@@ -16,13 +16,13 @@ int main() {
     char cmd[512];
     snprintf(cmd, sizeof(cmd),
              "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
-             "me.toast/.MainActivity",
+             "bellavita.toast/.MainActivity",
              "AllGame Priority: By RiProG");
     system(cmd);
     sleep(2);
     snprintf(cmd, sizeof(cmd),
              "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
-             "me.toast/.MainActivity",
+             "bellavita.toast/.MainActivity",
              "Program is running in the background.");
     system(cmd);
   }
@@ -90,7 +90,7 @@ int main() {
               char cmd[512];
               snprintf(cmd, sizeof(cmd),
                        "am start -a android.intent.action.MAIN -e toasttext "
-                       "\"%s\" -n me.toast/.MainActivity",
+                       "\"%s\" -n bellavita.toast/.MainActivity",
                        "AllGame Priority: Game Opened Optimizing");
               system(cmd);
             }
@@ -136,7 +136,7 @@ int main() {
               char cmd[512];
               snprintf(cmd, sizeof(cmd),
                        "am start -a android.intent.action.MAIN -e toasttext "
-                       "\"%s\" -n me.toast/.MainActivity",
+                       "\"%s\" -n bellavita.toast/.MainActivity",
                        "AllGame Priority: Successfully Optimized");
               system(cmd);
             }
@@ -148,7 +148,7 @@ int main() {
             char cmd[512];
             snprintf(cmd, sizeof(cmd),
                      "am start -a android.intent.action.MAIN -e toasttext "
-                     "\"%s\" -n me.toast/.MainActivity",
+                     "\"%s\" -n bellavita.toast/.MainActivity",
                      "AllGame Priority: Game Closed");
             system(cmd);
           }

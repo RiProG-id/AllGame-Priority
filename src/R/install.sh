@@ -22,6 +22,15 @@ ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
 unzip -o "$ZIPFILE" 'toast.apk' -d "$MODPATH" >&2
+if ! pm list package | grep -qbellavita.toast; then
+	pm install "$MODPATH"/toast.apk
+	if ! pm list package | grep -qbellavita.toast; then
+		cp "$MODPATH"/toast.apk /data/local/tmp
+		pm install /data/local/tmp/toast.apk
+		rm /data/local/tmp/toast.apk
+	fi
+fi
+rm "$MODPATH"/toast.apk
 ui_print ""
 unzip -o "$ZIPFILE" 'gamelist.txt' -d "$MODPATH" >&2
 counter=1

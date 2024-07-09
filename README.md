@@ -50,6 +50,8 @@ bash build.sh
 - Fixed issue where AGP menu could not be selected.
 - Fixed issue where app toast could not be installed.
 - Fixed error issues on Android version 8.
+- Reverted to the old toast application.
+- Fixed issue with Play Protect marking the app as unsafe.
 
 ### More Information
 
