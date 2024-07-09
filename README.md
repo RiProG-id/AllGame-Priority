@@ -47,7 +47,8 @@ bash build.sh
 
 ### Changelog from Version 3.5 to 4.0
 
-- Added new toast app to minimize issues.- Expanded AGP menu with more options.
+- Added new toast app to minimize issues.
+- Expanded AGP menu with more options.
 - Refactored code to make it easier to understand eliminating redundant parts.
 - Implemented `shfmt`
 - Fixed various bugs, including logic errors.
