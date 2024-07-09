@@ -21,7 +21,7 @@ ui_print "Telegram: @Zyarexx | Github: rakarmp"
 ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
-unzip -o "$ZIPFILE" 'Toast.apk' -d "$MODPATH" >&2
+unzip -o "$ZIPFILE" 'toast.apk' -d "$MODPATH" >&2
 ui_print ""
 unzip -o "$ZIPFILE" 'gamelist.txt' -d "$MODPATH" >&2
 counter=1
