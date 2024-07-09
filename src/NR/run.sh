@@ -19,14 +19,14 @@ echo "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 echo "Telegram: @fahrezone | Github: fahrez256"
 echo ""
 sleep 2
-echo "AllGame Priority 4.0"
+echo "AllGame Priority 4.1"
 echo ""
 sleep 2
 cp /sdcard/Priority/gamelist.txt /sdcard/Priority/gamelist.txt.temp
 counter=1
 package_list=$(pm list packages | cut -f 2 -d :)
 while IFS= read -r gamelist; do
-	line=$(echo "$gamelist" | awk '!/ /')
+	line=$(echo "$gamelist" | grep -v " ")
 	if echo "$package_list" | grep -q "$line"; then
 		echo "$counter. $line"
 		counter=$((counter + 1))
@@ -47,15 +47,15 @@ else
 fi
 if [ -f /sdcard/Priority/toast.apk ]; then
 	if ! pm list packages -3 | grep -q me.toast; then
-
 		cp /sdcard/Priority/toast.apk /data/local/tmp
+		pm disable-user com.android.vending >/dev/null 2>&1
 		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
+		pm enable com.android.vending >/dev/null 2>&1
 		rm /data/local/tmp/toast.apk
-
 	fi
 else
 	if pm list packages -3 | grep -q me.toast; then
-		pm uninstall me.toast
+		pm uninstall me.toast >/dev/null 2>&1
 	fi
 fi
 sleep 2

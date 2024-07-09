@@ -22,15 +22,13 @@ ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
 unzip -o "$ZIPFILE" 'toast.apk' -d "/data/local/tmp" >&2
-pm install "/data/local/tmp/toast.apk" >/dev/null 2>&1
-rm "/data/local/tmp/toast.apk" >/dev/null 2>&1
 ui_print ""
 unzip -o "$ZIPFILE" 'gamelist.txt' -d "$MODPATH" >&2
 counter=1
 package_list=$(pm list packages | cut -f 2 -d :)
 game_list=$(cat "$MODPATH/gamelist.txt")
 echo "$game_list" | while IFS= read -r gamelist; do
-	line=$(echo "$gamelist" | awk '!/ /')
+	line=$(echo "$gamelist" | grep -v " ")
 	if echo "$package_list" | grep -q "$line"; then
 		ui_print "  $counter. $line"
 		counter=$((counter + 1))

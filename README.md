@@ -15,7 +15,7 @@ bash build.sh
 
 #### Non-Root Method
 
-1. Extract the `Priority` folder from `AllGame Priority 4.0 R.zip` to internal storage.
+1. Extract the `Priority` folder from `AllGame Priority 4.1 R.zip` to internal storage.
    
 2. Use either Brevent or another ADB shell app.
    
@@ -39,21 +39,17 @@ bash build.sh
 
 #### Root Method
 
-1. Install `AllGame Priority 4.0 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
+1. Install `AllGame Priority 4.1 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
    
 2. Reboot your device.
 
 - su -c AGP | to configure if required.
 
-### Changelog from Version 3.5 to 4.0
+### Changelog from Version 4.0 to 4.1
 
-- Added new toast app to minimize issues.
-- Expanded AGP menu with more options.
-- Refactored code to make it easier to understand eliminating redundant parts.
-- Implemented `shfmt`
-- Fixed various bugs, including logic errors.
-- Contributors are credited for their contributions.
-- Implemented clean uninstallation function.
+- Fixed issue where AGP menu could not be selected.
+- Fixed issue where app toast could not be installed.
+- Fixed error issues on Android version 8.
 
 ### More Information
 

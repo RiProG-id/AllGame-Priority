@@ -76,7 +76,7 @@ while true; do
 		else
 			extended=true
 		fi
-	elif [ "$choice" = "$count" ]; then
+	elif [ "$choice" -ge 1 ] && [ "$choice" -lt "$count" ]; then
 		package=$(echo "$package_list" | awk "NR==$choice")
 		if grep -q "$package" "$gamelist"; then
 			sed -i "/$package/d" "$gamelist"
