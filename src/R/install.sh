@@ -22,9 +22,9 @@ ui_print "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
 unzip -o "$ZIPFILE" 'toast.apk' -d "$MODPATH" >&2
-if ! pm list package | grep -q bellavita.toast; then
+if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
 	pm install "$MODPATH"/toast.apk
-	if ! pm list package | grep -q bellavita.toast; then
+	if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
 		cp "$MODPATH"/toast.apk /data/local/tmp
 		pm install /data/local/tmp/toast.apk
 		rm /data/local/tmp/toast.apk
