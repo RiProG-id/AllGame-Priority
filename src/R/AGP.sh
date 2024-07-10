@@ -72,9 +72,7 @@ while true; do
 				rm /data/local/tmp/toast.apk >/dev/null 2>&1
 			fi
 		else
-			if pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
-				pm uninstall bellavita.toast >/dev/null 2>&1
-			fi
+			pm uninstall bellavita.toast >/dev/null 2>&1
 		fi
 	elif [ "$choice" = "$((count - 2))" ]; then
 		if [ "$extended" = true ]; then

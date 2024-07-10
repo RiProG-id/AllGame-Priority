@@ -12,38 +12,36 @@ int main() {
   dup2(null_fd, STDERR_FILENO);
   close(null_fd);
 
-  {
-    char cmd[512];
-    snprintf(cmd, sizeof(cmd),
-             "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
-             "bellavita.toast/.MainActivity",
-             "AllGame Priority: By RiProG");
-    system(cmd);
-    sleep(2);
-    snprintf(cmd, sizeof(cmd),
-             "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
-             "bellavita.toast/.MainActivity",
-             "Program is running in the background.");
-    system(cmd);
-  }
+  char cmd[512];
+  snprintf(cmd, sizeof(cmd),
+           "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
+           "bellavita.toast/.MainActivity",
+           "AllGame Priority: By RiProG");
+  system(cmd);
+  sleep(2);
+  snprintf(cmd, sizeof(cmd),
+           "am start -a android.intent.action.MAIN -e toasttext \"%s\" -n "
+           "bellavita.toast/.MainActivity",
+           "Program is running in the background.");
+  system(cmd);
 
   char games[128][128];
   int game_count = 0;
-  {
-    const char *primaryPath = "/data/adb/modules/Priority/gamelist.txt";
-    const char *secondaryPath = "/sdcard/Priority/gamelist.txt";
-    const char *filePath = NULL;
+  const char *primaryPath = "/data/adb/modules/Priority/gamelist.txt";
+  const char *secondaryPath = "/sdcard/Priority/gamelist.txt";
+  const char *filePath = NULL;
 
-    FILE *file = fopen(primaryPath, "r");
+  FILE *file = fopen(primaryPath, "r");
+  if (file != NULL) {
+    filePath = primaryPath;
+  } else {
+    file = fopen(secondaryPath, "r");
     if (file != NULL) {
-      filePath = primaryPath;
-    } else {
-      file = fopen(secondaryPath, "r");
-      if (file != NULL) {
-        filePath = secondaryPath;
-      }
+      filePath = secondaryPath;
     }
+  }
 
+  if (file != NULL) {
     char line[128];
     while (fgets(line, sizeof(line), file) != NULL && game_count < 128) {
       line[strcspn(line, "\n")] = '\0';
@@ -54,7 +52,6 @@ int main() {
       games[game_count][sizeof(games[game_count]) - 1] = '\0';
       game_count++;
     }
-
     fclose(file);
   }
 
@@ -63,8 +60,8 @@ int main() {
 
   while (1) {
     system("clear");
-
-    FILE *fp = popen("dumpsys activity top | grep ACTIVITY'", "r");
+    FILE *fp =
+        popen("dumpsys window | grep -E 'mCurrentFocus|mFocusedApp'", "r");
     char buffer[512] = "";
 
     if (fp != NULL) {
@@ -81,70 +78,58 @@ int main() {
         }
 
         if (game_found) {
-
           if (strcmp(prev_window_state, "active") != 0) {
             strcpy(game_running, "open");
 
-            {
-              char cmd[512];
-              snprintf(cmd, sizeof(cmd),
-                       "am start -a android.intent.action.MAIN -e toasttext "
-                       "\"%s\" -n bellavita.toast/.MainActivity",
-                       "AllGame Priority: Game Opened Optimizing");
-              system(cmd);
-            }
+            snprintf(cmd, sizeof(cmd),
+                     "am start -a android.intent.action.MAIN -e toasttext "
+                     "\"%s\" -n bellavita.toast/.MainActivity",
+                     "AllGame Priority: Game Opened Optimizing");
+            system(cmd);
             sleep(30);
 
-            {
-              char cmd[512];
-              snprintf(cmd, sizeof(cmd), "pgrep -f %s", detected_game);
-              FILE *pid_fp = popen(cmd, "r");
-              if (pid_fp != NULL) {
-                char pid[16];
-                while (fgets(pid, sizeof(pid), pid_fp) != NULL) {
-                  pid[strcspn(pid, "\n")] = 0;
-
-                  snprintf(cmd, sizeof(cmd), "/proc/%s/task/", pid);
-                  DIR *task_dir = opendir(cmd);
-                  if (task_dir != NULL) {
-                    struct dirent *task_entry;
-                    while ((task_entry = readdir(task_dir)) != NULL) {
-                      if (task_entry->d_type == DT_DIR &&
-                          strcmp(task_entry->d_name, ".") != 0 &&
-                          strcmp(task_entry->d_name, "..") != 0) {
-                        snprintf(cmd, sizeof(cmd), "renice -n -20 -p %s",
-                                 task_entry->d_name);
-                        system(cmd);
-                        snprintf(cmd, sizeof(cmd), "ionice -c 1 -n 0 -p %s",
-                                 task_entry->d_name);
-                        system(cmd);
-                        snprintf(cmd, sizeof(cmd), "chrt -f -p 99 %s",
-                                 task_entry->d_name);
-                        system(cmd);
-                      }
+            snprintf(cmd, sizeof(cmd), "pgrep -f %s", detected_game);
+            FILE *pid_fp = popen(cmd, "r");
+            if (pid_fp != NULL) {
+              char pid[16];
+              while (fgets(pid, sizeof(pid), pid_fp) != NULL) {
+                pid[strcspn(pid, "\n")] = 0;
+                snprintf(cmd, sizeof(cmd), "/proc/%s/task/", pid);
+                DIR *task_dir = opendir(cmd);
+                if (task_dir != NULL) {
+                  struct dirent *task_entry;
+                  while ((task_entry = readdir(task_dir)) != NULL) {
+                    if (task_entry->d_type == DT_DIR &&
+                        strcmp(task_entry->d_name, ".") != 0 &&
+                        strcmp(task_entry->d_name, "..") != 0) {
+                      snprintf(cmd, sizeof(cmd), "renice -n -20 -p %s",
+                               task_entry->d_name);
+                      system(cmd);
+                      snprintf(cmd, sizeof(cmd), "ionice -c 1 -n 0 -p %s",
+                               task_entry->d_name);
+                      system(cmd);
+                      snprintf(cmd, sizeof(cmd), "chrt -f -p 99 %s",
+                               task_entry->d_name);
+                      system(cmd);
                     }
-                    closedir(task_dir);
                   }
-                  sleep(1);
+                  closedir(task_dir);
                 }
-                pclose(pid_fp);
+                sleep(1);
               }
+              pclose(pid_fp);
             }
 
-            {
-              char cmd[512];
-              snprintf(cmd, sizeof(cmd),
-                       "am start -a android.intent.action.MAIN -e toasttext "
-                       "\"%s\" -n bellavita.toast/.MainActivity",
-                       "AllGame Priority: Successfully Optimized");
-              system(cmd);
-            }
+            snprintf(cmd, sizeof(cmd),
+                     "am start -a android.intent.action.MAIN -e toasttext "
+                     "\"%s\" -n bellavita.toast/.MainActivity",
+                     "AllGame Priority: Successfully Optimized");
+            system(cmd);
           }
           strcpy(prev_window_state, "active");
         } else {
           if (strcmp(game_running, "open") == 0) {
             strcpy(game_running, "");
-            char cmd[512];
             snprintf(cmd, sizeof(cmd),
                      "am start -a android.intent.action.MAIN -e toasttext "
                      "\"%s\" -n bellavita.toast/.MainActivity",
