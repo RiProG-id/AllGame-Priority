@@ -47,14 +47,15 @@ else
 fi
 if [ -f /sdcard/Priority/toast.apk ]; then
 	if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
-		cp /sdcard/Priority/toast.apk /data/local/tmp >/dev/null 2>&1
-		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
-		rm /data/local/tmp/toast.apk
+		pm install /sdcard/Priority/toast.apk >/dev/null 2>&1
+		if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
+			cp /sdcard/Priority/toast.apk /data/local/tmp >/dev/null 2>&1
+			pm install /data/local/tmp/toast.apk >/dev/null 2>&1
+			rm /data/local/tmp/toast.apk
+		fi
 	fi
 else
-	if pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
-		pm uninstall bellavita.toast >/dev/null 2>&1
-	fi
+	pm uninstall bellavita.toast >/dev/null 2>&1
 fi
 sleep 2
 pkill -f main
