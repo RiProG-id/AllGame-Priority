@@ -19,7 +19,7 @@ echo "Telegram: @Rem01Gaming | Github: Rem01Gaming"
 echo "Telegram: @fahrezone | Github: fahrez256"
 echo ""
 sleep 2
-echo "AllGame Priority 4.1"
+echo "AllGame Priority 4.5"
 echo ""
 sleep 2
 cp /sdcard/Priority/gamelist.txt /sdcard/Priority/gamelist.txt.temp
@@ -46,7 +46,7 @@ else
 	fi
 fi
 if [ -f /sdcard/Priority/toast.apk ]; then
-	if ! pm list packages | cut -f 2 -d : | bellavita.toast; then
+	if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
 		cp /sdcard/Priority/toast.apk /data/local/tmp >/dev/null 2>&1
 		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
 		rm /data/local/tmp/toast.apk

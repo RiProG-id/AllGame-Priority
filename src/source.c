@@ -64,8 +64,7 @@ int main() {
   while (1) {
     system("clear");
 
-    FILE *fp =
-        popen("dumpsys window | grep -E 'mCurrentFocus|mFocusedApp'", "r");
+    FILE *fp = popen("dumpsys activity top | grep ACTIVITY'", "r");
     char buffer[512] = "";
 
     if (fp != NULL) {

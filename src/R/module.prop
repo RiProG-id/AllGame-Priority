@@ -1,6 +1,6 @@
 id=Priority
 name=AllGame Priority
-version=4.1
-versionCode=41
+version=4.5
+versionCode=45
 author=@RiProG
 description=AllGame Priority is a module designed to periodically elevate task priorities for games, aiming to enhance their performance.

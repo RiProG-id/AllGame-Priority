@@ -23,14 +23,13 @@ ui_print "Telegram: @fahrezone | Github: fahrez256"
 ui_print ""
 unzip -o "$ZIPFILE" 'toast.apk' -d "$MODPATH" >&2
 if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
-	pm install "$MODPATH"/toast.apk
+	pm install "$MODPATH"/toast.apk >/dev/null 2>&1
 	if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
-		cp "$MODPATH"/toast.apk /data/local/tmp
-		pm install /data/local/tmp/toast.apk
-		rm /data/local/tmp/toast.apk
+		cp "$MODPATH"/toast.apk /data/local/tmp >/dev/null 2>&1
+		pm install /data/local/tmp/toast.apk >/dev/null 2>&1
+		rm /data/local/tmp/toast.apk >/dev/null 2>&1
 	fi
 fi
-rm "$MODPATH"/toast.apk
 ui_print ""
 unzip -o "$ZIPFILE" 'gamelist.txt' -d "$MODPATH" >&2
 counter=1

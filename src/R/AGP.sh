@@ -45,7 +45,7 @@ while true; do
 	fi
 	count=$((count + 1))
 	echo ""
-	if pm list package -d | grep -q bellavita.toast; then
+	if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
 		printf "\033[31m%s. %s\033[0m\n" "$count" "Toast"
 	else
 		printf "\033[32m%s. %s\033[0m\n" "$count" "Toast"
@@ -59,16 +59,22 @@ while true; do
 	read -r choice
 	if [ "$choice" = "$count" ]; then
 		echo ""
-		echo "Gamelist changes will take effect after next reboot
-"
+		echo "Gamelist changes will take effect after next reboot"
 		echo ""
 		echo ""
 		exit 0
 	elif [ "$choice" = "$((count - 1))" ]; then
-		if pm list package -d | grep -q bellavita.toast; then
-			pm enable bellavita.toast >/dev/null 2>&1
+		if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
+			pm install /data/adb/modules/Priority/toast.apk >/dev/null 2>&1
+			if ! pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
+				cp /data/adb/modules/Priority/toast.apk /data/local/tmp >/dev/null 2>&1
+				pm install /data/local/tmp/toast.apk >/dev/null 2>&1
+				rm /data/local/tmp/toast.apk >/dev/null 2>&1
+			fi
 		else
-			pm disable bellavita.toast >/dev/null 2>&1
+			if pm list packages | cut -f 2 -d : | grep -q bellavita.toast; then
+				pm uninstall bellavita.toast >/dev/null 2>&1
+			fi
 		fi
 	elif [ "$choice" = "$((count - 2))" ]; then
 		if [ "$extended" = true ]; then
