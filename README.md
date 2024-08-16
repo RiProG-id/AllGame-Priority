@@ -51,9 +51,10 @@ bash build.sh
 
 ## Changelog from Version 4.5 to 5.0
 
-- **Android 14 Support**: Added full support and compatibility improvements for Android 14.
-- **MultiArch Binary Support**: Introduced MultiArch binaries for ARM and ARM64 architectures, ensuring broader device compatibility and performance optimization.
-- **Miscellaneous Fixes**: Addressed various minor bugs and issues to improve the overall reliability of the application.
+- **Android 14 Support**: Added support and compatibility improvements for Android 14.
+- **MultiArch Binary Support**: Introduced binaries for ARM and ARM64 for broader compatibility.
+- **Root Version JSON Update**: Added a module update menu in the root manager app if updates are available.
+- **Miscellaneous Fixes**: Addressed various minor bugs and issues.
 
 ## More Information
 

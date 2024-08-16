@@ -4,4 +4,4 @@ version=-
 versionCode=-
 author=@RiProG
 description=AllGame Priority is a module designed to periodically elevate task priorities for games, aiming to enhance their performance.
-updateJson=-
+updateJson=https://raw.githubusercontent.com/RiProG-id/AllGame-Priority/main/update.json
