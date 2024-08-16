@@ -15,7 +15,7 @@ bash build.sh
 ### Non-Root Method
 
 1. **Extract Files:**
-   Extract the `Priority` folder from `AllGame Priority 4.5 R.zip` to your internal storage.
+   Extract the `Priority` folder from `AllGame Priority 5.0 R.zip` to your internal storage.
    
 2. **Use ADB Shell App:**
    Use either Brevent or another ADB shell app.
@@ -42,22 +42,18 @@ bash build.sh
 ### Root Method
 
 1. **Install Module:**
-   Install `AllGame Priority 4.5 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
+   Install `AllGame Priority 5.0 R.zip` using a root manager app like Magisk, KernelSU, or Apatch.
    
 2. **Reboot Device:**
    Reboot your device.
 
 > Use `su -c AGP` to configure if required.
 
-## Changelog from Version 4.1 to 4.5
+## Changelog from Version 4.5 to 5.0
 
-- Fixed the issue of AGP toast menu not taking effect.
-- Consolidated initialization of toast notifications for improved efficiency.
-- Simplified file handling for game list retrieval.
-- Enhanced game detection logic for better performance.
-- Optimized system call sequences for game optimization tasks.
-- Streamlined state management between game open and close events.
-- Bug fixes for improved stability and reliability.
+- **Android 14 Support**: Added full support and compatibility improvements for Android 14.
+- **MultiArch Binary Support**: Introduced MultiArch binaries for ARM and ARM64 architectures, ensuring broader device compatibility and performance optimization.
+- **Miscellaneous Fixes**: Addressed various minor bugs and issues to improve the overall reliability of the application.
 
 ## More Information
 

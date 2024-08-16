@@ -10,11 +10,6 @@ echo "* Telegram: @RiProG | Github: RiProG-ID *"
 echo "*                                       *"
 echo "*****************************************"
 echo ""
-echo "Contributor"
-echo "Telegram: @Zyarexx | Github: rakarmp"
-echo "Telegram: @Rem01Gaming | Github: Rem01Gaming"
-echo "Telegram: @fahrezone | Github: fahrez256"
-echo ""
 sleep 2
 gamelist=/data/adb/modules/Priority/gamelist.txt
 sleep 2

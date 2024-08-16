@@ -2,6 +2,17 @@
 if [ ! -f /sdcard/Priority/gamelist.txt ]; then
 	echo "Wrong directory"
 fi
+
+if [ ! -f /sdcard/Priority/main ]; then
+	architecture=$(getprop ro.product.cpu.abi)
+	if [ "$architecture" = "arm64-v8a" ]; then
+		mv /sdcard/Priority/arm64 /sdcard/Priority/main
+		rm /sdcard/Priority/arm
+	elif [ "$architecture" = "armeabi-v7a" ]; then
+		mv /sdcard/Priority/arm /sdcard/Priority/main
+		rm /sdcard/Priority/arm64
+	fi
+fi
 echo ""
 echo "*****************************************"
 echo "*      RiProG Open Source @RiOpSo       *"
@@ -13,13 +24,8 @@ echo "* Telegram: @RiProG | Github: RiProG-ID *"
 echo "*                                       *"
 echo "*****************************************"
 echo ""
-echo "Contributor"
-echo "Telegram: @Zyarexx | Github: rakarmp"
-echo "Telegram: @Rem01Gaming | Github: Rem01Gaming"
-echo "Telegram: @fahrezone | Github: fahrez256"
-echo ""
 sleep 2
-echo "AllGame Priority 4.5"
+echo "AllGame Priority 5.0"
 echo ""
 sleep 2
 cp /sdcard/Priority/gamelist.txt /sdcard/Priority/gamelist.txt.temp
@@ -58,7 +64,7 @@ else
 	pm uninstall bellavita.toast >/dev/null 2>&1
 fi
 sleep 2
-pkill -f main
+pkill -f main >/dev/null 2>&1
 if [ "$1" = kill ]; then
 	if ! pgrep -f main >/dev/null 2>&1; then
 		echo "Program is stopped in the background."
