@@ -65,6 +65,7 @@ bash build.sh
 - [rakarmp](https://github.com/rakarmp)
 - [Rem01Gaming](https://github.com/Rem01Gaming)
 - [fahrez256](https://github.com/fahrez256)
+- [HenBz10Real](https://github.com/HenBz10Real)
 
 **Visit:**
 - [Support ME](https://t.me/RiOpSo/2848)
